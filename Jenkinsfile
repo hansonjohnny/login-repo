@@ -17,7 +17,7 @@ pipeline {
 
         stage('Checkout Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/hansonjohnny/login-repo.git'
+                checkout scm
             }
         }
 
@@ -38,12 +38,4 @@ pipeline {
 
     }
 
-    post {
-        success {
-            echo "Image successfully built and pushed to Docker Hub"
-        }
-        failure {
-            echo "Pipeline FAILED"
-        }
-    }
 }
